@@ -48,7 +48,7 @@ const App = () => {
           <li key={task._id} style={{ marginBottom: 8 }}>
             {task.title}
             <button onClick={() => deleteTask(task._id)} style={{ float: "right" }}>
-              ❌
+              X
             </button>
           </li>
         ))}
