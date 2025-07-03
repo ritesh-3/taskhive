@@ -25,6 +25,7 @@ jobs:
           ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << 'EOF'
             cd taskhive
             git pull origin main
+            echo "${{ secrets.ENV_PROD }}" > client/.env.production
             docker compose down
             docker compose up --build -d
           EOF
