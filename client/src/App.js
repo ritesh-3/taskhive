@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <div style={{ maxWidth: 400, margin: "50px auto", textAlign: "center" }}>
-      <h2>📝 TaskHive</h2>
+      <h2>TaskHive</h2>
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
