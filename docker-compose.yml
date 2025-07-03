@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  server:
+    build: ./server
+    container_name: taskhive-server
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGO_URL=mongodb://mongo:27017/taskhive
+    depends_on:
+      - mongo
+
+  client:
+    build: ./client
+    container_name: taskhive-client
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+
+volumes:
+  mongo_data:
